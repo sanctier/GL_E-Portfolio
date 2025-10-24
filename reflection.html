@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Reflection — The Game e-Portfolio</title>
+  <title>Reflection — Endless Roguelike e-Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,17 +12,19 @@
 <body data-page="reflection">
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="index.html">The Game</a>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
-        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
-        <li><a href="game.html" class="nav-link" data-page="game">Game</a></li>
-        <li><a href="reflection.html" class="nav-link" data-page="reflection">Reflection</a></li>
-        <li><a href="documents.html" class="nav-link" data-page="documents">Documents</a></li>
-        <li><a href="feedback.html" class="nav-link" data-page="feedback">Feedback</a></li>
-        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
-      </ul>
+      <a class="brand" href="index.html">Endless Roguelike</a>
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="game.html">Game</a></li>
+          <li><a href="playtest-survey.html">Playtest Survey</a></li>
+          <li><a href="reflection.html">Reflection</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
     </nav>
   </header>
 
@@ -34,70 +36,100 @@
       </div>
     </section>
 
-    <section class="reflections container">
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-toggle">Week 1–2: Getting Started</button>
-          <div class="accordion-panel">
-            <p><strong>Key Activities:</strong> Introduction to the course, setting up development environment, learning basic HTML and CSS.</p>
-            <p><strong>Reflection:</strong> The first two weeks were all about orientation and getting comfortable with the tools. I learned the fundamentals of web development and started thinking about how design impacts user experience. Setting up my workspace and understanding version control with Git was challenging but rewarding.</p>
-            <p><strong>Challenges:</strong> Understanding Git commands and workflow initially confused me, but practice helped.</p>
-            <p><strong>Achievements:</strong> Successfully set up my first HTML page and styled it with CSS!</p>
-          </div>
-        </div>
-        
-        <div class="accordion-item">
-          <button class="accordion-toggle">Week 3–4: Building Foundations</button>
-          <div class="accordion-panel">
-            <p><strong>Key Activities:</strong> Advanced CSS layouts, introduction to JavaScript, responsive design principles.</p>
-            <p><strong>Reflection:</strong> These weeks deepened my understanding of CSS Grid and Flexbox. I started to see how powerful CSS can be for creating complex layouts. JavaScript opened up a new world of interactivity—variables, functions, and DOM manipulation became my new vocabulary.</p>
-            <p><strong>Challenges:</strong> Debugging JavaScript errors and understanding asynchronous behavior.</p>
-            <p><strong>Achievements:</strong> Created my first interactive form with validation!</p>
-          </div>
-        </div>
+    <section class="reflection-timeline">
+      <div class="timeline-container container">
 
-        <div class="accordion-item">
-          <button class="accordion-toggle">Week 5–6: Interactive Projects</button>
-          <div class="accordion-panel">
-            <p><strong>Key Activities:</strong> Event handling, working with APIs, building small interactive projects.</p>
-            <p><strong>Reflection:</strong> This phase was exciting! I worked on projects that involved fetching data from APIs and displaying it dynamically. Understanding how events work in JavaScript and how to handle user interactions made me feel like a real developer. I also learned about promises and async/await.</p>
-            <p><strong>Challenges:</strong> Handling API errors and understanding asynchronous JavaScript patterns.</p>
-            <p><strong>Achievements:</strong> Built a weather app that fetches real-time data!</p>
-          </div>
-        </div>
+        <!-- Left Sticky Weeks -->
+        <aside class="weeks-list" aria-label="Weeks">
+          <h2 class="week active" data-target="0">Week 1–2</h2>
+          <h2 class="week" data-target="1">Week 3–4</h2>
+          <h2 class="week" data-target="2">Week 5–6</h2>
+          <h2 class="week" data-target="3">Week 7–8</h2>
+          <h2 class="week" data-target="4">Week 9–10</h2>
+        </aside>
 
-        <div class="accordion-item">
-          <button class="accordion-toggle">Week 7–8: Advanced Topics</button>
-          <div class="accordion-panel">
-            <p><strong>Key Activities:</strong> Advanced JavaScript concepts, introduction to frameworks, UX design principles.</p>
-            <p><strong>Reflection:</strong> These weeks pushed me out of my comfort zone. I explored more advanced JavaScript patterns like closures and prototypes. Learning about UX design principles helped me understand that coding isn't just about making things work—it's about making things work well for users.</p>
-            <p><strong>Challenges:</strong> Balancing functionality with user experience design.</p>
-            <p><strong>Achievements:</strong> Redesigned a previous project with better UX principles!</p>
+        <!-- Right Scrollable Reflections -->
+        <div class="reflection-content" aria-live="polite">
+          <div class="reflection-step" data-week="Week 1–2">
+            <h3>Week 1–2: Introduction & Planning</h3>
+            <p>Introduction to the course, setting up tools, and planning the project. I focused on establishing a development workflow and exploring initial design concepts.</p>
+            <div class="images">
+              <img src="assets/img/week1a.jpg" alt="Week 1 image A">
+              <img src="assets/img/week1b.jpg" alt="Week 1 image B">
+            </div>
           </div>
-        </div>
 
-        <div class="accordion-item">
-          <button class="accordion-toggle">Week 9–10: Final Projects</button>
-          <div class="accordion-panel">
-            <p><strong>Key Activities:</strong> Final project planning, implementation, testing, and documentation.</p>
-            <p><strong>Reflection:</strong> The final weeks brought everything together. I applied all the skills I learned to create this e-portfolio. Planning the structure, designing the interface, implementing features, and ensuring everything works smoothly was a comprehensive exercise. This project represents my growth and learning journey.</p>
-            <p><strong>Challenges:</strong> Time management and ensuring all features work across different devices.</p>
-            <p><strong>Achievements:</strong> Completed a full-featured, responsive e-portfolio that I'm proud of!</p>
+          <div class="reflection-step" data-week="Week 3–4">
+            <h3>Week 3–4: Design & Research</h3>
+            <p>Worked on wireframes, researched UX patterns, and iterated on visual direction. I tested layout ideas and created initial mockups.</p>
+            <div class="images">
+              <img src="assets/img/week3a.jpg" alt="Week 3 image A">
+              <img src="assets/img/week3b.jpg" alt="Week 3 image B">
+            </div>
+          </div>
+
+          <div class="reflection-step" data-week="Week 5–6">
+            <h3>Week 5–6: Interactive Prototyping</h3>
+            <p>Implemented interactive components and explored animations. I focused on making the experience feel responsive and engaging.</p>
+            <div class="images">
+              <img src="assets/img/week5a.jpg" alt="Week 5 image A">
+              <img src="assets/img/week5b.jpg" alt="Week 5 image B">
+            </div>
+          </div>
+
+          <div class="reflection-step" data-week="Week 7–8">
+            <h3>Week 7–8: Implementation & Testing</h3>
+            <p>Built features, tested across browsers/devices, and iterated on accessibility. Focused on stability and polish.</p>
+            <div class="images">
+              <img src="assets/img/week7a.jpg" alt="Week 7 image A">
+              <img src="assets/img/week7b.jpg" alt="Week 7 image B">
+            </div>
+          </div>
+
+          <div class="reflection-step" data-week="Week 9–10">
+            <h3>Week 9–10: Finalization & Presentation</h3>
+            <p>Completed final deliverables, documentation, and prepared the portfolio presentation. Focused on clarity and showcasing the learning journey.</p>
+            <div class="images">
+              <img src="assets/img/week9a.jpg" alt="Week 9 image A">
+              <img src="assets/img/week9b.jpg" alt="Week 9 image B">
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 [Your Name]</p>
-      <div class="footer-links">
-        <a href="mailto:your.email@example.com">Email</a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-inner-center">
+      <div class="footer-left">
+        <h2>Thanks for visiting my portfolio.</h2>
+        <p class="sub">Let's connect or collaborate.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-grid">
+          <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Project info</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="game.html">Game</a></li>
+              <li><a href="reflection.html">Reflection</a></li>
+              <li><a href="documents.html">Documents</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="contact-links">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/yourprofile" target="_blank">GitHub</a></li>
+              <li><a href="mailto:your.email@example.com">Email</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  <div class="footer-copyright"></div>
   </footer>
 
   <script src="script.js"></script>

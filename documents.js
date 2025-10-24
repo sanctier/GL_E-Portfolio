@@ -8,14 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if(!docsGrid || !pdfModal) return;
 
-  // Sample PDF data - replace with your actual PDFs
+  // Documents limited to three core PDFs for the assignment
   const docs = [
-    {title:'Project Proposal',desc:'Initial project proposal and plan.',file:'assets/sample1.pdf'},
-    {title:'Design Document',desc:'Wireframes and design decisions.',file:'assets/sample2.pdf'},
-    {title:'Final Report',desc:'Final project report and reflection.',file:'assets/sample3.pdf'},
-    {title:'Technical Specification',desc:'Detailed technical documentation.',file:'assets/sample4.pdf'},
-    {title:'User Research',desc:'User interviews and findings.',file:'assets/sample5.pdf'},
-    {title:'Testing Report',desc:'Testing methodology and results.',file:'assets/sample6.pdf'}
+    {title:'Project Proposal', desc:'Initial project proposal and plan.', file:'Project Proposal.pdf'},
+    {title:'Learning Contract', desc:'Agreed learning objectives and assessment criteria.', file:'Learning Contract.pdf'},
+    {title:'Learning Log', desc:'Weekly learning log and reflections.', file:'Learning Log.pdf'}
   ];
 
   let current = 0;

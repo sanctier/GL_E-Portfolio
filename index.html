@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Home — The Game e-Portfolio</title>
+  <title>Project info — Endless Roguelike e-Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,65 +12,135 @@
 <body data-page="index">
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="index.html">The Game</a>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
-        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
-        <li><a href="game.html" class="nav-link" data-page="game">Game</a></li>
-        <li><a href="reflection.html" class="nav-link" data-page="reflection">Reflection</a></li>
-        <li><a href="documents.html" class="nav-link" data-page="documents">Documents</a></li>
-        <li><a href="feedback.html" class="nav-link" data-page="feedback">Feedback</a></li>
-        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
-      </ul>
+      <a class="brand" href="index.html">Endless Roguelike</a>
+      <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="index.html">Introduction</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="game.html">Game</a></li>
+          <li><a href="playtest-survey.html">Playtest Survey</a></li>
+          <li><a href="reflection.html">Reflection</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <h1>Welcome to The Game</h1>
+      <div class="container hero-inner">
+        <h1>Welcome to Endless Roguelike</h1>
         <p class="lead">Welcome to my interactive student e-portfolio. Explore my learning journey, weekly reflections, projects, and supporting documents. Treat this like a level-up log for my studies.</p>
         <div class="hero-buttons">
           <a href="about.html" class="btn-primary">Learn About Me</a>
-          <a href="game.html" class="btn-secondary">Explore The Game</a>
+          <a href="game.html" class="btn-secondary">Explore Endless Roguelike</a>
         </div>
       </div>
       <div class="hero-pattern" aria-hidden="true"></div>
     </section>
-
-    <section class="quick-links container">
-      <h2>Quick Links</h2>
-      <div class="cards-grid">
-        <a href="reflection.html" class="quick-card">
-          <h3>📝 Reflections</h3>
-          <p>Read my weekly learning reflections</p>
-        </a>
-        <a href="documents.html" class="quick-card">
-          <h3>📄 Documents</h3>
-          <p>View supporting project documents</p>
-        </a>
-        <a href="gallery.html" class="quick-card">
-          <h3>🖼️ Gallery</h3>
-          <p>Browse project screenshots & visuals</p>
-        </a>
-        <a href="feedback.html" class="quick-card">
-          <h3>💬 Feedback</h3>
-          <p>Share your thoughts and suggestions</p>
-        </a>
+    
+    <!-- Project info moved from Game page -->
+    <section class="game-content container">
+      <div class="game-intro">
+        <h2>What is "Endless Roguelike"?</h2>
+        <p>This e-portfolio isn't just a collection of documents—it's <strong>Endless Roguelike</strong>. Every week is a new level, every challenge is a quest, and every reflection is an achievement unlocked. This portfolio tracks my progress through my diploma program as if it were an RPG adventure.</p>
       </div>
+
+      <div class="game-stats">
+        <h3>Player Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Weeks Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">25+</div>
+            <div class="stat-label">Skills Learned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">15</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">100+</div>
+            <div class="stat-label">Hours Invested</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-journey">
+        <h3>The Journey Map</h3>
+        <p>Track my progression through different stages of learning:</p>
+        <div class="journey-stages">
+          <div class="stage completed">
+            <h4>🎮 Stage 1: Orientation</h4>
+            <p>Understanding the basics and setting up the foundation</p>
+            <span class="badge">Completed</span>
+          </div>
+          <div class="stage completed">
+            <h4>⚔️ Stage 2: Skill Building</h4>
+            <p>Acquiring core technical skills and tools</p>
+            <span class="badge">Completed</span>
+          </div>
+          <div class="stage in-progress">
+            <h4>🏆 Stage 3: Project Development</h4>
+            <p>Applying knowledge to real-world projects</p>
+            <span class="badge">In Progress</span>
+          </div>
+          <div class="stage locked">
+            <h4>👑 Stage 4: Mastery</h4>
+            <p>Final projects and portfolio presentation</p>
+            <span class="badge">Locked</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3>Ready to explore more?</h3>
+        <div class="cta-buttons">
+          <a href="reflection.html" class="btn-primary">Read My Reflections</a>
+          <a href="gallery.html" class="btn-secondary">View Gallery</a>
+        </div>
+      </div>
+
     </section>
+
+    <!-- Quick Links removed from Project info as requested -->
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 [Your Name]</p>
-      <div class="footer-links">
-        <a href="mailto:your.email@example.com">Email</a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-inner-center">
+      <div class="footer-left">
+        <h2>Thanks for visiting my portfolio.</h2>
+        <p class="sub">Let's connect or collaborate.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-grid">
+          <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Project info</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="game.html">Game</a></li>
+              <li><a href="reflection.html">Reflection</a></li>
+              <li><a href="documents.html">Documents</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="contact-links">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/yourprofile" target="_blank">GitHub</a></li>
+              <li><a href="mailto:your.email@example.com">Email</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  <div class="footer-copyright"></div>
   </footer>
 
   <script src="script.js"></script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Feedback — The Game e-Portfolio</title>
+  <title>Feedback — Endless Roguelike e-Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,17 +12,19 @@
 <body data-page="feedback">
   <header class="site-header">
     <nav class="navbar">
-      <a class="brand" href="index.html">The Game</a>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
-        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
-        <li><a href="game.html" class="nav-link" data-page="game">Game</a></li>
-        <li><a href="reflection.html" class="nav-link" data-page="reflection">Reflection</a></li>
-        <li><a href="documents.html" class="nav-link" data-page="documents">Documents</a></li>
-        <li><a href="feedback.html" class="nav-link" data-page="feedback">Feedback</a></li>
-        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
-      </ul>
+      <a class="brand" href="index.html">Endless Roguelike</a>
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="game.html">Game</a></li>
+          <li><a href="playtest-survey.html">Playtest Survey</a></li>
+          <li><a href="reflection.html">Reflection</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
     </nav>
   </header>
 
@@ -100,15 +102,37 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 [Your Name]</p>
-      <div class="footer-links">
-        <a href="mailto:your.email@example.com">Email</a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-inner-center">
+      <div class="footer-left">
+        <h2>Thanks for visiting my portfolio.</h2>
+        <p class="sub">Let's connect or collaborate.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-grid">
+          <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Project info</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="game.html">Game</a></li>
+              <li><a href="reflection.html">Reflection</a></li>
+              <li><a href="documents.html">Documents</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="contact-links">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/yourprofile" target="_blank">GitHub</a></li>
+              <li><a href="mailto:your.email@example.com">Email</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  <div class="footer-copyright"></div>
   </footer>
 
   <script src="script.js"></script>
