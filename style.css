@@ -38,7 +38,15 @@ main{padding-top:4.5rem; padding-bottom:15rem}
 }
 .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
 .nav-links li a{color:#0f172a;text-decoration:none;padding:0.45rem 0.6rem;border-radius:8px;transition:background 180ms, color 180ms;white-space:nowrap}
-.nav-links li a:hover, .nav-links li a.active{background:rgba(255,255,255,0.6);color:var(--primary)}
+/* Normal state (header outside footer): hover/active use black background with white text for contrast */
+.nav-links li a:hover,
+.nav-links li a:focus { background:#000; color:#fff }
+.nav-links li a.active{background:#000;color:#fff}
+
+/* When the header overlaps the dark footer, switch nav text to white for contrast */
+.site-header.in-footer .nav-links li a{color:#fff}
+.site-header.in-footer .nav-links li a:hover, .site-header.in-footer .nav-links li a.active{background:rgba(255,255,255,0.12);color:#fff}
+.site-header.in-footer .brand{color:#fff}
 .hamburger{display:none;background:none;border:0;font-size:1.2rem;cursor:pointer}
 
 .hero{padding:100px 1rem 80px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
@@ -60,6 +68,13 @@ body[data-page="index"] .hero-inner{max-width:700px}
 .page-header{padding:80px 1rem 40px;background:var(--bg);border-bottom:1px solid rgba(15,23,42,0.04)}
 .page-header h1{margin:0 0 0.5rem;font-size:clamp(2rem,4vw,2.5rem)}
 .page-header .subtitle{color:var(--muted);margin:0;font-size:1.1rem}
+/* Small horizontal chips/buttons representing the learning cycle */
+.process-steps{display:flex;gap:0.75rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
+.process-step{background: rgba(37,99,235,0.95); color: #000000; padding:0.55rem 0.9rem;border-radius:12px;box-shadow:var(--shadow);font-weight:700;cursor:default;min-width:92px;text-align:center;transition:none}
+@media (max-width:640px){
+  .process-steps{gap:0.5rem}
+  .process-step{flex:1;min-width:0;padding:0.6rem 0.8rem}
+}
 .game-header{background:var(--bg)}
 
 /* Quick Links */
@@ -111,7 +126,7 @@ body[data-page="index"] .hero-inner{max-width:700px}
   background: #000;
   color: #fff;
   font-weight:700;
-  box-shadow:0 6px 20px rgba(0,0,0,0.12);
+  
 }
 .reflection-content{min-height:60vh}
 .reflection-step{opacity:0;transform:translateY(40px);transition:opacity 600ms cubic-bezier(.25,.46,.45,.94),transform 600ms cubic-bezier(.25,.46,.45,.94);background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border-radius:16px;padding:40px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-bottom:2.5rem}
@@ -203,11 +218,14 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .pdf-toolbar .pdf-nav{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--primary)}
 .pdf-toolbar .pdf-nav:hover{background:var(--primary);color:#fff}
 
-.site-footer{height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;padding:2rem;
+.site-footer{height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;position:relative;overflow:visible;padding:2rem;
   /* Solid black footer background */
   background: #000000;
+  /* Smooth curved top corners (only top-left and top-right) */
+  border-top-left-radius:28px;
+  border-top-right-radius:28px;
 }
-.site-footer .footer-inner-center{max-width:1200px;padding:2rem;width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem}
+.site-footer .footer-inner-center{max-width:1200px;padding:2rem;width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;position:relative;z-index:60}
 .footer-left{text-align:left;flex:1}
 .site-footer h2{font-size:clamp(1.6rem,4vw,2.8rem);margin:0 0 0.5rem}
 .site-footer p.sub{font-size:1rem;margin-bottom:0.5rem;color:rgba(255,255,255,0.85)}
@@ -248,6 +266,8 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .site-footer .footer-grid h4 { margin-top: 0; }
 .site-footer .footer-grid ul { margin-top: 0; }
 .site-footer .footer-grid .quick-links, .site-footer .footer-grid .contact-links { min-width: 140px; }
+
+/* Footer uses smooth rounded top corners now; removed decorative scallops */
 
 .pdf-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.5);z-index:60}
 .pdf-modal[aria-hidden="false"]{display:flex}

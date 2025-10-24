@@ -23,14 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Scroll effect for header
-  window.addEventListener('scroll', () => {
+  // Scroll effect for header + detect when header overlaps the footer
+  const siteFooter = document.querySelector('.site-footer');
+
+  function updateHeaderState(){
+    // scrolled state (shrinks header after small scroll)
     if (window.scrollY > 50) {
       siteHeader.classList.add('scrolled');
     } else {
       siteHeader.classList.remove('scrolled');
     }
-  });
-  // (No footer animation — static presentation)
+
+    // in-footer state: when the header visually overlaps the footer area
+    if(siteHeader && siteFooter){
+      const headerRect = siteHeader.getBoundingClientRect();
+      const footerRect = siteFooter.getBoundingClientRect();
+      // If header bottom is below the footer top (viewport coords), they overlap
+      if(headerRect.bottom > footerRect.top){
+        siteHeader.classList.add('in-footer');
+      } else {
+        siteHeader.classList.remove('in-footer');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+  window.addEventListener('resize', updateHeaderState, { passive: true });
+  // run once on load to set initial state
+  updateHeaderState();
 
   // Accordion (accessible) - only if accordion exists on page
   const accordionToggles = document.querySelectorAll('.accordion-toggle');
