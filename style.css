@@ -431,17 +431,32 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 
 /* Albums layout for gallery page */
 .albums-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem 4rem;padding:2rem 0}
-.album-card{position:relative;height:340px;border-radius:12px;overflow:visible;cursor:pointer;padding-bottom:1rem;margin-bottom:0}
+.album-card{position:relative;height:340px;border-radius:12px;overflow:visible;cursor:pointer;padding-bottom:3.5rem;margin-bottom:0;transition:transform 280ms cubic-bezier(.2,.9,.2,1),box-shadow 280ms;will-change:transform;background:var(--card)}
 .album-stack{position:relative;width:100%;height:260px}
-.album-stack .album-shot{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:10px;box-shadow:var(--shadow);transition:transform 220ms ease, left 220ms ease}
+/* Background mask behind the stacked shots to prevent any dark/square artifacts from showing
+  when images are transformed or partially transparent. This sits under the images but inside
+  the card so peeks still appear naturally. */
+.album-stack::before{content:'';position:absolute;inset:0;border-radius:12px;background:var(--card);z-index:0;pointer-events:none}
+.album-stack .album-shot{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);transition:transform 260ms cubic-bezier(.2,.9,.2,1),left 260ms ease,box-shadow 260ms;display:block;background:transparent;backface-visibility:hidden;will-change:transform}
+/* Ensure transformed/rotated images keep rounded corners and don't show square artifacts */
+.album-stack .album-shot{clip-path: inset(0 round 12px);}
 .album-stack .album-shot:nth-child(1){z-index:3;left:0}
 .album-stack .album-shot:nth-child(2){z-index:2;left:26px;transform:scale(0.98)}
 .album-stack .album-shot:nth-child(3){z-index:1;left:52px;transform:scale(0.96)}
-.album-info{padding-top:0.75rem}
-.album-title{margin:0;font-size:1rem;font-weight:600}
-.album-card:hover .album-stack .album-shot:nth-child(1){transform:translateY(-6px)}
-.album-card:hover .album-stack .album-shot:nth-child(2){transform:translateY(-4px)}
-.album-card:hover .album-stack .album-shot:nth-child(3){transform:translateY(-2px)}
+.album-info{position:absolute;left:50%;bottom: -22px;transform:translateX(-50%);padding:0;border:0;background:transparent;z-index:62;display:flex;justify-content:center;width:100%;pointer-events:none}
+.album-title{margin:0;font-size:0.98rem;font-weight:700;pointer-events:auto;background:linear-gradient(90deg,var(--primary),#3b82f6);color:#000;padding:0.45rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(16,24,40,0.08)}
+
+/* Dramatic hover: lift & scale the front shot, spread the peeked shots further, deepen shadows */
+.album-card:hover{transform:translateY(-8px) scale(1.03);z-index:40;}
+.album-card:hover .album-stack .album-shot:nth-child(1){transform:translateY(-10px) scale(1.04);box-shadow:0 24px 60px rgba(2,6,23,0.22)}
+.album-card:hover .album-stack .album-shot:nth-child(2){left:46px;transform:translateX(18px) scale(0.95) rotate(-1.5deg);box-shadow:0 18px 44px rgba(2,6,23,0.14)}
+.album-card:hover .album-stack .album-shot:nth-child(3){left:92px;transform:translateX(36px) scale(0.92) rotate(-3deg);box-shadow:0 12px 36px rgba(2,6,23,0.12)}
+
+/* Push following album cards to the right for a bold separation effect */
+.album-card:hover ~ .album-card{transform:translateX(36px)}
+
+/* Slightly dim non-hovered cards when grid is hovered to emphasize the active one */
+.albums-grid:hover .album-card:not(:hover){opacity:0.94;transform:scale(0.985)}
 
 @media (max-width:900px){
   .albums-grid{grid-template-columns:repeat(2,1fr)}
