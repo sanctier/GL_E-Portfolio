@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Documents — The Game e-Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="documents">
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">The Game</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+        <li><a href="game.html" class="nav-link" data-page="game">Game</a></li>
+        <li><a href="reflection.html" class="nav-link" data-page="reflection">Reflection</a></li>
+        <li><a href="documents.html" class="nav-link" data-page="documents">Documents</a></li>
+        <li><a href="feedback.html" class="nav-link" data-page="feedback">Feedback</a></li>
+        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Supporting Documents</h1>
+        <p class="subtitle">View and download project documentation</p>
+      </div>
+    </section>
+
+    <section class="documents container">
+      <div class="docs-grid" id="docsGrid">
+        <!-- Cards populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 [Your Name]</p>
+      <div class="footer-links">
+        <a href="mailto:your.email@example.com">Email</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PDF Viewer Modal -->
+  <div id="pdfModal" class="pdf-modal" aria-hidden="true">
+    <div class="pdf-modal-inner">
+      <button id="closePdf" class="close-pdf" aria-label="Close viewer">✕</button>
+      <div class="pdf-toolbar">
+        <button id="prevPdf" class="pdf-nav">← Prev</button>
+        <span id="pdfTitle">Document</span>
+        <button id="nextPdf" class="pdf-nav">Next →</button>
+      </div>
+      <div id="pdfViewer" class="pdf-viewer">
+        <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="documents.js"></script>
+</body>
+</html>

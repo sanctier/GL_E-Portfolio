@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Feedback — The Game e-Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="feedback">
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">The Game</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+        <li><a href="game.html" class="nav-link" data-page="game">Game</a></li>
+        <li><a href="reflection.html" class="nav-link" data-page="reflection">Reflection</a></li>
+        <li><a href="documents.html" class="nav-link" data-page="documents">Documents</a></li>
+        <li><a href="feedback.html" class="nav-link" data-page="feedback">Feedback</a></li>
+        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Feedback</h1>
+        <p class="subtitle">Your thoughts and suggestions are valuable to me</p>
+      </div>
+    </section>
+
+    <section class="feedback-section container">
+      <div class="feedback-intro">
+        <p>I'd love to hear your thoughts about my portfolio! Whether it's constructive criticism, suggestions for improvement, or just general comments, your feedback helps me grow.</p>
+      </div>
+
+      <div class="feedback-form-container">
+        <form id="feedbackForm" class="feedback-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Feedback Category</label>
+            <select id="category" name="category" required>
+              <option value="">Select a category</option>
+              <option value="design">Design & Layout</option>
+              <option value="content">Content Quality</option>
+              <option value="technical">Technical Issues</option>
+              <option value="general">General Feedback</option>
+              <option value="suggestion">Suggestions</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rating">Overall Rating</label>
+            <div class="rating-group">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5">⭐⭐⭐⭐⭐</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4">⭐⭐⭐⭐</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3">⭐⭐⭐</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2">⭐⭐</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1">⭐</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Feedback</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Share your thoughts..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Submit Feedback</button>
+        </form>
+
+        <div id="formSuccess" class="form-message success" style="display:none;">
+          <h3>✓ Thank you for your feedback!</h3>
+          <p>Your message has been received. I appreciate you taking the time to share your thoughts.</p>
+        </div>
+
+        <div id="formError" class="form-message error" style="display:none;">
+          <h3>⚠ Something went wrong</h3>
+          <p>Please try again later or contact me directly via email.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 [Your Name]</p>
+      <div class="footer-links">
+        <a href="mailto:your.email@example.com">Email</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="feedback.js"></script>
+</body>
+</html>

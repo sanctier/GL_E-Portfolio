@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery — The Game e-Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="gallery">
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">The Game</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+        <li><a href="game.html" class="nav-link" data-page="game">Game</a></li>
+        <li><a href="reflection.html" class="nav-link" data-page="reflection">Reflection</a></li>
+        <li><a href="documents.html" class="nav-link" data-page="documents">Documents</a></li>
+        <li><a href="feedback.html" class="nav-link" data-page="feedback">Feedback</a></li>
+        <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Gallery</h1>
+        <p class="subtitle">Visual showcase of my projects and journey</p>
+      </div>
+    </section>
+
+    <section class="gallery-section container">
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="projects">Projects</button>
+        <button class="filter-btn" data-filter="designs">Designs</button>
+        <button class="filter-btn" data-filter="screenshots">Screenshots</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 [Your Name]</p>
+      <div class="footer-links">
+        <a href="mailto:your.email@example.com">Email</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="closeLightbox" class="close-lightbox" aria-label="Close">✕</button>
+    <button id="prevImage" class="lightbox-nav prev" aria-label="Previous">‹</button>
+    <button id="nextImage" class="lightbox-nav next" aria-label="Next">›</button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
