@@ -31,8 +31,8 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <h1>Weekly Reflections</h1>
-        <p class="subtitle">My journey through learning, week by week</p>
+        <h1>Reflections</h1>
+        <p class="subtitle">My journey through learning, updated every 1-3 weeks.</p>
       </div>
     </section>
 
@@ -40,28 +40,31 @@
       <div class="timeline-container container">
 
         <!-- Left Sticky Weeks -->
-        <aside class="weeks-list" aria-label="Weeks">
+          <aside class="weeks-list" aria-label="Weeks">
           <h2 class="week active" data-target="0">Week 1–2</h2>
           <h2 class="week" data-target="1">Week 3–4</h2>
           <h2 class="week" data-target="2">Week 5–6</h2>
           <h2 class="week" data-target="3">Week 7–8</h2>
           <h2 class="week" data-target="4">Week 9–10</h2>
+          <h2 class="week" data-target="5">Week 11–14</h2>
         </aside>
 
         <!-- Right Scrollable Reflections -->
         <div class="reflection-content" aria-live="polite">
           <div class="reflection-step" data-week="Week 1–2">
-            <h3>Week 1–2: Introduction & Planning</h3>
-            <p>Introduction to the course, setting up tools, and planning the project. I focused on establishing a development workflow and exploring initial design concepts.</p>
+            <h3>Week 1–2: Consultation(1) & Planning</h3>
+            <p>Met with my GL Facilitator Mrs Vera Tay with my groupmate Nazrin, We discussed our project goals and initial ideas. After that, we created a project timeline and assigned roles for each other.<br><br> I have always been interested in game genre like Roguelike, excited to be able to create it for Guided Learning. This module has given me an opportunity to explore game designing & programming and opened up possibilities for a career in the gaming industry.
+            <br><br><strong>Completed:</strong> Setting up Unity project, Planning Game Developent Directions, Main character movement and project folder structure.
+            </p>
             <div class="images">
-              <img src="assets/img/week1a.jpg" alt="Week 1 image A">
-              <img src="assets/img/week1b.jpg" alt="Week 1 image B">
+              <img src="week1a.jpg" alt="Week 1 image A">
+              <img src="week1b.jpg" alt="Week 1 image B">
             </div>
           </div>
 
           <div class="reflection-step" data-week="Week 3–4">
-            <h3>Week 3–4: Design & Research</h3>
-            <p>Worked on wireframes, researched UX patterns, and iterated on visual direction. I tested layout ideas and created initial mockups.</p>
+            <h3>Week 3–4: Prototype & Consultation(2)</h3>
+            <p></p>
             <div class="images">
               <img src="assets/img/week3a.jpg" alt="Week 3 image A">
               <img src="assets/img/week3b.jpg" alt="Week 3 image B">
@@ -69,8 +72,8 @@
           </div>
 
           <div class="reflection-step" data-week="Week 5–6">
-            <h3>Week 5–6: Interactive Prototyping</h3>
-            <p>Implemented interactive components and explored animations. I focused on making the experience feel responsive and engaging.</p>
+            <h3>Week 5–6: Feedback & Improvements</h3>
+            <p>Conducted a survey with playtesters to gather feedback on the game prototype. Analyzed the results and identified key areas for improvement.</p>
             <div class="images">
               <img src="assets/img/week5a.jpg" alt="Week 5 image A">
               <img src="assets/img/week5b.jpg" alt="Week 5 image B">
@@ -78,8 +81,8 @@
           </div>
 
           <div class="reflection-step" data-week="Week 7–8">
-            <h3>Week 7–8: Implementation & Testing</h3>
-            <p>Built features, tested across browsers/devices, and iterated on accessibility. Focused on stability and polish.</p>
+            <h3>Week 7–8: Consultation(3) & Improvements</h3>
+            <p></p>
             <div class="images">
               <img src="assets/img/week7a.jpg" alt="Week 7 image A">
               <img src="assets/img/week7b.jpg" alt="Week 7 image B">
@@ -87,11 +90,20 @@
           </div>
 
           <div class="reflection-step" data-week="Week 9–10">
-            <h3>Week 9–10: Finalization & Presentation</h3>
-            <p>Completed final deliverables, documentation, and prepared the portfolio presentation. Focused on clarity and showcasing the learning journey.</p>
+            <h3>Week 9–10: Finalization & Consultation(4)</h3>
+            <p></p>
             <div class="images">
               <img src="assets/img/week9a.jpg" alt="Week 9 image A">
               <img src="assets/img/week9b.jpg" alt="Week 9 image B">
+            </div>
+          </div>
+          
+          <div class="reflection-step" data-week="Week 11–12">
+            <h3>Week 11–14: Post-Production & Reflection</h3>
+            <p></p>
+            <div class="images">
+              <img src="assets/img/week11a.jpg" alt="Week 11 image A">
+              <img src="assets/img/week11b.jpg" alt="Week 11 image B">
             </div>
           </div>
         </div>
@@ -102,8 +114,8 @@
   <footer class="site-footer" id="siteFooter">
     <div class="footer-inner-center">
       <div class="footer-left">
-        <h2>Thanks for visiting my portfolio.</h2>
-        <p class="sub">Let's connect or collaborate.</p>
+        <h2>GL E-Portfolio</h2>
+  <p class="sub">This website was created for Guided Learning<br>to showcase my journey in creating a 2D-Roguelike game</p>
       </div>
       <div class="footer-right">
         <div class="footer-grid">
@@ -131,6 +143,16 @@
     </div>
   <div class="footer-copyright"></div>
   </footer>
+
+  <!-- Reflection image lightbox (opens when clicking images in reflection steps) -->
+  <div class="lightbox reflection-lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <div class="lightbox-content">
+      <img src="" alt="" />
+      <p class="lightbox-caption" aria-hidden="true"></p>
+    </div>
+  <!-- Reuse the PDF close button style so it matches the document modal -->
+  <button class="close-pdf" aria-label="Close image">&times;</button>
+  </div>
 
   <script src="script.js"></script>
 </body>

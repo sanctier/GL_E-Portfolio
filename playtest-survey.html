@@ -32,29 +32,22 @@
     <section class="page-header">
       <div class="container">
         <h1>Playtest Survey</h1>
-        <p class="subtitle">Summary of ratings from three playtesters</p>
+        <p class="subtitle">Summary of ratings from three <br> playtesters from my class.</p>
       </div>
     </section>
 
     <section class="container survey">
-      <h2>Question: How would you rate the game's overall fun (1 = lowest, 5 = highest)?</h2>
+      <p class="subtitle">Below are several playtest questions. Each shows three playtester ratings and an average.</p>
 
-      <div id="ratingsList" style="margin-top:1rem"></div>
-
-      <div class="survey-summary" style="margin-top:1.5rem">
-        <div class="avg-text">Average rating: <strong id="avgNumber">—</strong></div>
-        <div class="survey-bar" aria-hidden="true">
-          <div class="survey-bar-fill" id="avgFill" style="width:0%"></div>
-        </div>
-      </div>
+      <div id="surveyContainer" style="margin-top:1rem"></div>
     </section>
   </main>
 
   <footer class="site-footer" id="siteFooter">
     <div class="footer-inner-center">
       <div class="footer-left">
-        <h2>Thanks for visiting my portfolio.</h2>
-        <p class="sub">Let's connect or collaborate.</p>
+        <h2>GL E-Portfolio</h2>
+  <p class="sub">This website was created for Guided Learning<br>to showcase my journey in creating a 2D-Roguelike game</p>
       </div>
       <div class="footer-right">
         <div class="footer-grid">
@@ -84,20 +77,44 @@
   </footer>
 
   <script>
-    // Static demo ratings from three playtesters. Replace or wire to real data as needed.
-    const ratings = [4, 5, 3];
+    // Questions array: each question has a label and an array of three playtester ratings (1-5)
+    const questions = [
+      { q: 'Overall fun', ratings: [4,5,3] },
+      { q: 'Controls responsiveness', ratings: [4,4,3] },
+      { q: 'Difficulty balance', ratings: [3,4,2] },
+      { q: 'Visuals and style', ratings: [5,4,4] },
+      { q: 'Sound and feedback', ratings: [4,3,3] },
+      { q: 'Replayability', ratings: [4,5,3] }
+    ];
 
-    const list = document.getElementById('ratingsList');
-    ratings.forEach((r, i) => {
-      const row = document.createElement('div');
-      row.className = 'rating-row';
-      row.innerHTML = `<strong>Playtester ${i+1}:</strong> ${r} / 5 <div class="mini-bar" aria-hidden="true"><div class="mini-bar-fill" style="width:${(r/5)*100}%"></div></div>`;
-      list.appendChild(row);
+    const container = document.getElementById('surveyContainer');
+    questions.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'survey-question';
+      card.innerHTML = `<h3>${idx+1}. ${item.q}</h3>`;
+
+      // per-tester rows
+      item.ratings.forEach((r, i) => {
+        const row = document.createElement('div');
+        row.className = 'rating-row';
+        const miniBar = `<div class="mini-bar" aria-hidden="true"><div class="mini-bar-fill" style="width:${(r/5)*100}%"></div></div>`;
+        row.innerHTML = `<strong>Playtester ${i+1}:</strong> ${r} / 5 ${miniBar}`;
+        card.appendChild(row);
+      });
+
+      // average
+      const avg = (item.ratings.reduce((a,b) => a + b, 0) / item.ratings.length);
+      const summary = document.createElement('div');
+      summary.className = 'survey-summary';
+      summary.style.marginTop = '0.75rem';
+      summary.innerHTML = `
+        <div class="avg-text">Average rating: <strong>${avg.toFixed(2)} / 5</strong></div>
+        <div class="survey-bar" aria-hidden="true"><div class="survey-bar-fill" style="width:${(avg/5*100)}%"></div></div>
+      `;
+      card.appendChild(summary);
+
+      container.appendChild(card);
     });
-
-    const avg = (ratings.reduce((a,b)=>a+b,0)/ratings.length);
-    document.getElementById('avgNumber').textContent = avg.toFixed(2) + ' / 5';
-    document.getElementById('avgFill').style.width = (avg/5*100) + '%';
   </script>
   <script src="script.js"></script>
 </body>

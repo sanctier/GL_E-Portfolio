@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Documents limited to three core PDFs for the assignment
   const docs = [
-    {title:'Project Proposal', desc:'Initial project proposal and plan.', file:'Project Proposal.pdf'},
-    {title:'Learning Contract', desc:'Agreed learning objectives and assessment criteria.', file:'Learning Contract.pdf'},
-    {title:'Learning Log', desc:'Weekly learning log and reflections.', file:'Learning Log.pdf'}
+    {title:'Project Proposal', desc:'Initial project proposal sent.', file:'Project Proposal.pdf'},
+    {title:'Learning Contract', desc:'Key Learning objectives, Goals and Action Plan.', file:'Learning Contract.pdf'},
+    {title:'Learning Log', desc:'Bi-Weekly learning log and reflections. (Plan, Perform, Monitor, Reflect)', file:'Learning Log.pdf'}
   ];
 
   let current = 0;
