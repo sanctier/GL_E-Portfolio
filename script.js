@@ -5,10 +5,72 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinksContainer = document.querySelector('.nav-links');
   const siteHeader = document.querySelector('.site-header');
 
+  if(navLinksContainer) navLinksContainer.setAttribute('aria-hidden','true');
+
+  // Mobile detection: add `is-mobile` to body when viewport width <= 640px
+  function updateMobileState(){
+    const isMobile = window.innerWidth <= 640;
+    document.body.classList.toggle('is-mobile', isMobile);
+    // if we moved to desktop view, ensure mobile nav is closed
+    const navOpen = navLinksContainer && navLinksContainer.classList.contains && navLinksContainer.classList.contains('show');
+    if(!isMobile && navOpen){
+      // close menu if open: remove class and update ARIA
+      navLinksContainer.classList.remove('show');
+      navLinksContainer.setAttribute('aria-hidden','true');
+      if(hamburger) hamburger.setAttribute('aria-expanded','false');
+    }
+  }
+  window.addEventListener('resize', updateMobileState, { passive: true });
+  // run once
+  updateMobileState();
+
   // Toggle mobile nav
-  if(hamburger){
-    hamburger.addEventListener('click', () => {
-      navLinksContainer.classList.toggle('show');
+  if(hamburger && navLinksContainer){
+    // ensure accessible attributes
+    hamburger.setAttribute('aria-expanded', 'false');
+    // aria-controls optional: point to nav-links id if present
+    if(!navLinksContainer.id) navLinksContainer.id = 'mobileNav';
+    hamburger.setAttribute('aria-controls', navLinksContainer.id);
+
+    // helper to open/close mobile nav with accessibility features
+    let outsideClickHandler = null;
+    let escHandler = null;
+
+    function openMobileNav(){
+      navLinksContainer.classList.add('show');
+      navLinksContainer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded','true');
+      // move focus to first link
+      const firstLink = navLinksContainer.querySelector('a');
+      if(firstLink) firstLink.focus();
+
+      // close when clicking outside
+      outsideClickHandler = (ev) => {
+        if(!navLinksContainer.contains(ev.target) && !hamburger.contains(ev.target)){
+          closeMobileNav();
+        }
+      };
+      document.addEventListener('click', outsideClickHandler);
+
+      // close on Escape
+      escHandler = (ev) => { if(ev.key === 'Escape') closeMobileNav(); };
+      document.addEventListener('keydown', escHandler);
+    }
+
+    function closeMobileNav(){
+      navLinksContainer.classList.remove('show');
+      navLinksContainer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.focus();
+      if(outsideClickHandler) document.removeEventListener('click', outsideClickHandler);
+      if(escHandler) document.removeEventListener('keydown', escHandler);
+      outsideClickHandler = null; escHandler = null;
+    }
+
+    hamburger.addEventListener('click', (ev) => {
+      // toggle based on state
+      const isOpen = navLinksContainer.classList.contains('show');
+      if(isOpen) closeMobileNav(); else openMobileNav();
     });
   }
 
@@ -207,27 +269,46 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveWeek();
 
     // Click on week scrolls to corresponding step — center the step in the
-    // visible viewport area (accounting for the fixed header) so the step
-    // appears centered rather than simply aligned under the header.
+    // visible viewport area (accounting for the fixed header). Use a custom
+    // requestAnimationFrame-based scroller (with easing) so the motion is
+    // controlled and slower (no abrupt snap).
+    let scrollAnimId = null;
+    function easeInOutQuad(t){ return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t }
+    function animateScrollTo(targetY, duration = 800, cb){
+      if(scrollAnimId) cancelAnimationFrame(scrollAnimId);
+      const start = window.pageYOffset || document.documentElement.scrollTop;
+      const maxTarget = Math.max(0, Math.round(targetY));
+      const startTime = performance.now();
+      function step(now){
+        const elapsed = now - startTime;
+        const t = Math.min(1, elapsed / duration);
+        const eased = easeInOutQuad(t);
+        const current = Math.round(start + (maxTarget - start) * eased);
+        window.scrollTo(0, current);
+        if(t < 1){
+          scrollAnimId = requestAnimationFrame(step);
+        } else {
+          scrollAnimId = null;
+          if(typeof cb === 'function') cb();
+        }
+      }
+      scrollAnimId = requestAnimationFrame(step);
+    }
+
     weeks.forEach((w, i) => {
       w.addEventListener('click', () => {
         const target = steps[i];
         if(!target) return;
-  const rect = target.getBoundingClientRect();
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  // Compute visible center using live header height
-  const visibleCenter = getVisibleCenter();
-  const elemCenterViewport = rect.top + rect.height / 2;
-  const delta = elemCenterViewport - visibleCenter;
-  const targetY = scrollTop + delta;
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Compute visible center using live header height
+        const visibleCenter = getVisibleCenter();
+        const elemCenterViewport = rect.top + rect.height / 2;
+        const delta = elemCenterViewport - visibleCenter;
+        const targetY = scrollTop + delta;
 
-        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-        // After smooth scroll settles, perform a final snap to ensure exact centering
-        // (some browsers may not land exactly on the computed pixel target).
-        setTimeout(() => {
-          window.scrollTo({ top: Math.max(0, targetY), behavior: 'auto' });
-          updateActiveWeek();
-        }, 420);
+        // Animate to the computed target more slowly and update active week after.
+        animateScrollTo(targetY, 800, updateActiveWeek);
       });
     });
 
@@ -277,5 +358,47 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })();
   }
+
+    // Rotating greeting for About page: fade between languages every 7 seconds
+    (function setupRotatingGreeting(){
+      const greetingEl = document.getElementById('greeting');
+      if(!greetingEl) return;
+      // Sequence: English -> Chinese -> Tamil
+      const greetings = ['Hello', '你好', 'வணக்கம்'];
+      let idx = 0; // currently showing greetings[0]
+      const interval = 4000; // 7 seconds per language
+      const fadeMs = 420; // should match CSS transition duration
+
+      // helper to advance to the next greeting with fade
+      function advanceGreeting(){
+        // fade out
+        greetingEl.classList.add('fade-out');
+        setTimeout(() => {
+          idx = (idx + 1) % greetings.length;
+          greetingEl.textContent = greetings[idx];
+          // fade back in
+          greetingEl.classList.remove('fade-out');
+        }, fadeMs);
+      }
+
+      // ensure initial text is the first greeting
+      greetingEl.textContent = greetings[0];
+      greetingEl.setAttribute('aria-live','polite');
+      // start cycling after the initial interval
+      const greetingTimer = setInterval(advanceGreeting, interval);
+
+      // If the page is hidden (tab background), pause the rotation to save cycles and
+      // avoid confusing screen reader announcements.
+      document.addEventListener('visibilitychange', () => {
+        if(document.hidden){
+          clearInterval(greetingTimer);
+        } else {
+          // restart with a fresh timer
+          // show the current greeting immediately (ensure visible)
+          greetingEl.classList.remove('fade-out');
+          setInterval(advanceGreeting, interval);
+        }
+      });
+    })();
 
 });
