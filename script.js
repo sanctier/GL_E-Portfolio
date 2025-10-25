@@ -313,48 +313,98 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Reflection images: open a lightbox when an image is clicked and allow closing
-    // with the circular `.close-pdf` button, overlay click or Escape key.
+    // with navigation (prev/next) limited to images within the same week.
     (function setupReflectionLightbox(){
-      const imgs = document.querySelectorAll('.reflection-step .images img');
-      const lightbox = document.querySelector('.reflection-lightbox');
-      if(!lightbox || !imgs || imgs.length === 0) return;
-      const lbImg = lightbox.querySelector('img');
-      const lbCaption = lightbox.querySelector('.lightbox-caption');
-      const closeBtn = lightbox.querySelector('.close-pdf');
+      const steps = document.querySelectorAll('.reflection-step');
+      const lightbox = document.getElementById('reflectionLightbox');
+      if(!lightbox || !steps || steps.length === 0) return;
+      const lbImg = document.getElementById('reflectionLightboxImage');
+      const lbCaption = document.getElementById('reflectionLightboxCaption');
+      const titleEl = document.getElementById('reflectionLightboxTitle');
+      const closeBtn = document.getElementById('reflectionClose');
+      const prevBtn = document.getElementById('reflectionPrev');
+      const nextBtn = document.getElementById('reflectionNext');
 
-      function openLightbox(src, alt){
-        if(!lightbox || !lbImg) return;
-        lbImg.src = src;
-        lbImg.alt = alt || '';
-        if(lbCaption) lbCaption.textContent = alt || '';
+      let currentGroup = []; // images for the currently-open week
+      let currentIndex = 0;
+
+      function openLightboxFor(stepEl, index){
+        currentGroup = Array.from(stepEl.querySelectorAll('.images img')) || [];
+        if(currentGroup.length === 0) return;
+        currentIndex = Math.max(0, Math.min(index, currentGroup.length - 1));
+        const node = currentGroup[currentIndex];
+        if(!node) return;
+        lbImg.src = node.src;
+        lbImg.alt = node.alt || '';
+        if(lbCaption) lbCaption.textContent = node.alt || '';
+        // Set title based on week heading (if available)
+        if(titleEl){
+          const weekHeading = stepEl.querySelector('h3') || stepEl.querySelector('[data-week]');
+          titleEl.textContent = weekHeading ? weekHeading.textContent : '';
+        }
         lightbox.setAttribute('aria-hidden','false');
-        // prevent body scroll while open
         document.body.style.overflow = 'hidden';
+        updateNavVisibility();
         if(closeBtn) closeBtn.focus();
         window.addEventListener('keydown', onKeydown);
       }
 
       function closeLightbox(){
-        if(!lightbox) return;
         lightbox.setAttribute('aria-hidden','true');
         document.body.style.overflow = '';
         if(lbImg) lbImg.src = '';
+        if(titleEl) titleEl.textContent = '';
         window.removeEventListener('keydown', onKeydown);
       }
 
-      function onKeydown(e){ if(e.key === 'Escape') closeLightbox(); }
+      function onKeydown(e){
+        if(e.key === 'Escape') return closeLightbox();
+        if(e.key === 'ArrowLeft') return showIndex(currentIndex - 1);
+        if(e.key === 'ArrowRight') return showIndex(currentIndex + 1);
+      }
 
-      imgs.forEach(img => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', () => openLightbox(img.src, img.alt));
+      function showIndex(i){
+        if(!currentGroup || currentGroup.length === 0) return;
+        if(i < 0 || i >= currentGroup.length) return;
+        currentIndex = i;
+        const node = currentGroup[currentIndex];
+        lbImg.src = node.src;
+        lbImg.alt = node.alt || '';
+        if(lbCaption) lbCaption.textContent = node.alt || '';
+        updateNavVisibility();
+      }
+
+      function showPrev(){ showIndex(currentIndex - 1); }
+      function showNext(){ showIndex(currentIndex + 1); }
+
+      function updateNavVisibility(){
+        if(!prevBtn || !nextBtn) return;
+        if(!currentGroup || currentGroup.length <= 1){
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+          return;
+        }
+        prevBtn.style.display = (currentIndex > 0) ? 'inline-flex' : 'none';
+        nextBtn.style.display = (currentIndex < currentGroup.length - 1) ? 'inline-flex' : 'none';
+      }
+
+      // Attach click handlers: each image opens the lightbox for its parent step only
+      steps.forEach(step => {
+        const imgs = step.querySelectorAll('.images img');
+        imgs.forEach((img, idx) => {
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', () => openLightboxFor(step, idx));
+        });
       });
 
       if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
+      if(prevBtn) prevBtn.addEventListener('click', showPrev);
+      if(nextBtn) nextBtn.addEventListener('click', showNext);
 
-      // Click on overlay (outside content) closes
+      // Click on overlay (outside inner card) closes
       lightbox.addEventListener('click', (ev) => {
-        const content = lightbox.querySelector('.lightbox-content');
-        if(!content.contains(ev.target)) closeLightbox();
+        const inner = lightbox.querySelector('.pdf-modal-inner');
+        if(!inner.contains(ev.target)) closeLightbox();
       });
     })();
   }

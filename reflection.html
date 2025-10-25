@@ -21,6 +21,7 @@
           <li><a href="playtest-survey.html">Playtest Survey</a></li>
           <li><a href="reflection.html">Reflection</a></li>
           <li><a href="documents.html">Documents</a></li>
+          <li><a href="checklist.html">Checklist</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </div>
@@ -32,7 +33,7 @@
     <section class="page-header">
       <div class="container">
         <h1>Reflections</h1>
-        <p class="subtitle">My journey through learning, updated every 1-3 weeks.</p>
+        <p class="subtitle">My journey through learning, <br>reflected and updated every 1-3 weeks.</p>
         <div class="process-steps" aria-label="Learning cycle steps">
           <div class="process-step">Plan</div>
           <div class="process-step">Perform</div>
@@ -160,14 +161,20 @@
   <div class="footer-copyright"></div>
   </footer>
 
-  <!-- Reflection image lightbox (opens when clicking images in reflection steps) -->
-  <div class="lightbox reflection-lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
-    <div class="lightbox-content">
-      <img src="" alt="" />
-      <p class="lightbox-caption" aria-hidden="true"></p>
+  <!-- Reflection image lightbox (white card, toolbar, prev/next and blue close like Gallery) -->
+  <div id="reflectionLightbox" class="pdf-modal" aria-hidden="true" role="dialog" aria-label="Reflection image viewer">
+    <div class="pdf-modal-inner">
+      <button id="reflectionClose" class="close-pdf" aria-label="Close image">✕</button>
+      <div class="pdf-toolbar">
+        <button id="reflectionPrev" class="pdf-nav">← Prev</button>
+        <span id="reflectionLightboxTitle">Image</span>
+        <button id="reflectionNext" class="pdf-nav">Next →</button>
+      </div>
+      <div class="lightbox-content">
+        <img id="reflectionLightboxImage" src="" alt="">
+        <div class="lightbox-caption" id="reflectionLightboxCaption"></div>
+      </div>
     </div>
-  <!-- Reuse the PDF close button style so it matches the document modal -->
-  <button class="close-pdf" aria-label="Close image">&times;</button>
   </div>
 
   <script src="script.js"></script>

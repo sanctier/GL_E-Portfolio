@@ -58,6 +58,46 @@ main{padding-top:4.5rem; padding-bottom:15rem}
 /* Animated greeting (fades between languages) */
 .greeting{display:inline-block;transition:opacity 420ms ease;opacity:1}
 .greeting.fade-out{opacity:0}
+
+/* Checklist status badges */
+.check-item .task-status{
+  display:inline-block;
+  padding:0.18rem 0.6rem;
+  border-radius:10px;
+  font-size:0.9rem;
+  color:#fff;
+  background:#000; /* in-progress default */
+}
+.check-item.completed .task-status{
+  background: rgba(37,99,235,0.95); /* completed blue */
+}
+
+/* Circular checkbox styling with white tick when checked */
+.check-item input[type="checkbox"]{
+  -webkit-appearance:none;
+  appearance:none;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  border:2px solid #000;
+  background:transparent;
+  margin:0;
+  flex:0 0 20px;
+}
+.check-item input[type="checkbox"]:disabled{
+  cursor:default;
+}
+.check-item input[type="checkbox"]:checked{
+  background: var(--primary);
+  border-color: var(--primary);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}
+.check-item input[type="checkbox"]:not(:checked){
+  background: transparent;
+}
 .btn-primary{display:inline-block;padding:0.6rem 1.2rem;background:var(--primary);color:white;border-radius:10px;text-decoration:none;transition:background 200ms}
 .btn-primary:hover{background:#1d4ed8}
 .btn-secondary{display:inline-block;padding:0.6rem 1.2rem;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:10px;text-decoration:none;transition:all 200ms}
@@ -165,7 +205,11 @@ body[data-page="index"] .hero-inner{max-width:700px}
   outline: none !important;
 }
 
-.documents .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.documents .docs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem}
+
+@media (max-width:780px){
+  .documents .docs-grid{grid-template-columns:1fr}
+}
 .doc-card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:var(--shadow);display:flex;flex-direction:column}
 .doc-card h3{margin:0 0 0.5rem}
 .doc-card p{flex:1;color:var(--muted)}

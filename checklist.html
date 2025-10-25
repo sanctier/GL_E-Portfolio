@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Endless Roguelike — e-Portfolio</title>
+  <title>Checklist — Endless Roguelike e-Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="game">
+<body data-page="checklist">
   <header class="site-header">
     <nav class="navbar">
   <span class="brand">endless</span>
@@ -30,28 +30,22 @@
   </header>
 
   <main>
-    <section class="page-header game-header">
+    <section class="page-header">
       <div class="container">
-        <h1>Game</h1>
-        <p class="subtitle">Trailer and playable demo.</p>
+        <h1>Development Checklist</h1>
+        <p class="subtitle">A simple checklist for building your 2D roguelike. Edit <code>checklist.js</code> to change items or mark them completed.</p>
       </div>
     </section>
 
-    <section class="game-trailer container">
-      <h2>Trailer</h2>
-      <!-- Replace src with your trailer video file or hosted URL -->
-      <video controls>
-        <source src="assets/trailer.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </section>
+    <section class="container">
+      <div class="checklist-card" style="margin-top:1rem;">
+        <div style="display:flex;align-items:center;margin-bottom:1rem;">
+            <div id="progressSummary" style="font-weight:700;color:var(--muted)"></div>
+          </div>
 
-    <section class="game-play container" style="margin-top:2rem;">
-      <h2>Play the HTML5 demo</h2>
-      <p class="subtitle">The playable HTML5 build will be loading below here for you to play.<br>The game is only for PC users.</p>
-      <div class="game-frame" style="margin-top:1rem;min-height:400px;border-radius:12px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center">
-        <!-- When ready, replace the iframe src with the path to your HTML5 build index.html -->
-        <iframe src="about:blank" title="Playable demo placeholder"></iframe>
+        <ul id="checklist" class="checklist-list" style="list-style:none;padding:0;margin:0;display:grid;gap:0.5rem;">
+          <!-- Items inserted by JS: up to 10 -->
+        </ul>
       </div>
     </section>
   </main>
@@ -60,7 +54,7 @@
     <div class="footer-inner-center">
       <div class="footer-left">
         <h2>GL E-Portfolio</h2>
-  <p class="sub">This website was created for Guided Learning<br> to showcase my journey in creating a 2D-Roguelike game.</p>
+  <p class="sub">This website was created for Guided Learning<br>to showcase my journey in creating a 2D-Roguelike game.</p>
       </div>
       <div class="footer-right">
         <div class="footer-grid">
@@ -89,6 +83,6 @@
   <div class="footer-copyright"></div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="checklist.js"></script>
 </body>
 </html>
