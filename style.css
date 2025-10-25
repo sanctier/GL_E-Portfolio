@@ -156,7 +156,7 @@ body[data-page="index"] .hero-inner{max-width:700px}
 
 /* Reflection timeline styles */
 .reflection-timeline{padding:3rem 0}
-.timeline-container{display:grid;grid-template-columns:280px 1fr;gap:2.5rem;align-items:start}
+ .timeline-container{display:grid;grid-template-columns:330px 1fr;gap:2.5rem;align-items:start}
 .weeks-list{
   position:sticky;
   /* Stick the weeks list below the fixed header so it lines up with the
@@ -570,13 +570,15 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .album-title{margin:0;font-size:0.98rem;font-weight:700;pointer-events:auto;background:linear-gradient(90deg,var(--primary),#3b82f6);color:#000;padding:0.45rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(16,24,40,0.08)}
 
 /* Dramatic hover: lift & scale the front shot, spread the peeked shots further, deepen shadows */
-.album-card:hover{transform:translateY(-8px) scale(1.03);z-index:40;}
-.album-card:hover .album-stack .album-shot:nth-child(1){transform:translateY(-10px) scale(1.04);box-shadow:0 24px 60px rgba(2,6,23,0.22)}
-.album-card:hover .album-stack .album-shot:nth-child(2){left:46px;transform:translateX(18px) scale(0.95) rotate(-1.5deg);box-shadow:0 18px 44px rgba(2,6,23,0.14)}
-.album-card:hover .album-stack .album-shot:nth-child(3){left:92px;transform:translateX(36px) scale(0.92) rotate(-3deg);box-shadow:0 12px 36px rgba(2,6,23,0.12)}
 
-/* Push following album cards to the right for a bold separation effect */
-.album-card:hover ~ .album-card{transform:translateX(36px)}
+/* Subtle hover: smaller lift, gentler image offsets and softer shadows */
+.album-card:hover{transform:translateY(-4px) scale(1.015);z-index:35}
+.album-card:hover .album-stack .album-shot:nth-child(1){transform:translateY(-6px) scale(1.02);box-shadow:0 16px 36px rgba(2,6,23,0.16)}
+.album-card:hover .album-stack .album-shot:nth-child(2){left:36px;transform:translateX(10px) scale(0.98) rotate(-1deg);box-shadow:0 12px 28px rgba(2,6,23,0.12)}
+.album-card:hover .album-stack .album-shot:nth-child(3){left:72px;transform:translateX(18px) scale(0.96) rotate(-2deg);box-shadow:0 10px 24px rgba(2,6,23,0.10)}
+
+/* Push following album cards slightly to the right for a subtle separation */
+.album-card:hover ~ .album-card{transform:translateX(12px)}
 
 /* Slightly dim non-hovered cards when grid is hovered to emphasize the active one */
 .albums-grid:hover .album-card:not(:hover){opacity:0.94;transform:scale(0.985)}

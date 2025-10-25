@@ -6,14 +6,18 @@ const PAGE_TITLE = 'Development Checklist';
 const items = [
   { text: 'Set up project structure (Unity folders)', completed: true },
   { text: 'Implement player movement & collision', completed: true },
-  { text: 'Find art assets (sprites, tilesets)', completed: false },
-  { text: 'Implement enemy AI and behaviors', completed: false },
-  { text: 'Design Shop System', completed: false },
-  { text: 'Add UI: health, currency, and menus', completed: false },
-  { text: 'Implement random enemy spawn System', completed: false },
-  { text: 'Playtest core loop and balance', completed: false },
-  { text: 'Fix critical bugs and polish', completed: false },
-  { text: 'Prepare build and documentation', completed: false }
+  { text: 'Find art assets (2D sprites, Background)', completed: true },
+  { text: 'Implement enemy AI and behaviors', completed: true},
+  { text: 'Design Shop System', completed: true },
+  { text: 'Add User interface:<br> Health, Wave timer and currency texts', completed: true },
+  { text: 'Main Menu and Start Screen', completed: false },
+  { text: 'Implement random enemy Spawn System', completed: true },
+  { text: 'Constraint player play area', completed: true },
+  { text: 'Player Audio feedback', completed: false },
+  { text: 'Enemy Audio feedback', completed: false },
+  { text: 'Prepare HTML5 build', completed: false },
+  { text: 'Record a demo/trailer video', completed: false },
+  { text: 'Conduct playtesting session', completed: false }
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
