@@ -33,15 +33,24 @@
     <section class="page-header">
       <div class="container">
         <h1>Development Checklist</h1>
-        <p class="subtitle">Tracking of progress on the 2D roguelike project.</p>
+        <p class="subtitle">To-do list for 2D roguelike project.</p>
       </div>
     </section>
 
     <section class="container">
       <div class="checklist-card" style="margin-top:1rem;">
-        <div style="display:flex;align-items:center;margin-bottom:1rem;">
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem;">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="flex:1">
+              <div class="check-progress" aria-hidden="true"><div id="progressFill" class="check-progress-fill"></div></div>
+            </div>
+            <div id="progressPercent" class="check-progress-text" aria-live="polite">0%</div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:flex-start;gap:1rem;">
             <div id="progressSummary" style="font-weight:700;color:var(--muted)"></div>
           </div>
+        </div>
 
         <ul id="checklist" class="checklist-list" style="list-style:none;padding:0;margin:0;display:grid;gap:0.5rem;">
           <!-- Items inserted by JS: up to 10 -->

@@ -72,6 +72,11 @@ main{padding-top:4.5rem; padding-bottom:15rem}
   background: rgba(37,99,235,0.95); /* completed blue */
 }
 
+/* Checklist progress bar */
+.check-progress{background:rgba(15,23,42,0.06);height:18px;border-radius:999px;overflow:hidden}
+.check-progress-fill{height:100%;background:linear-gradient(90deg,#000,var(--primary));width:0%;transition:width 480ms ease;border-radius:999px}
+.check-progress-text{font-weight:700;color:var(--muted);font-size:0.95rem}
+
 /* Circular checkbox styling with white tick when checked */
 .check-item input[type="checkbox"]{
   -webkit-appearance:none;

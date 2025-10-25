@@ -22,6 +22,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const listEl = document.getElementById('checklist');
   const summaryEl = document.getElementById('progressSummary');
+  const progressFill = document.getElementById('progressFill');
+  const progressPercent = document.getElementById('progressPercent');
 
   function render(){
     listEl.innerHTML = '';
@@ -46,7 +48,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const total = items.length;
     const done = items.filter(i => i.completed).length;
     if(summaryEl) summaryEl.textContent = `${done}/${total} completed`;
+    const pct = total === 0 ? 0 : Math.round((done/total) * 100);
+    if(progressPercent) progressPercent.textContent = pct + '%';
+    if(progressFill) progressFill.style.width = pct + '%';
   }
 
   render();
+
+  // No UI editing on this page — progress bar and summary are derived from items[].completed
 });
