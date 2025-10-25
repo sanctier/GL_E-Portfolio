@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {title:'Project Proposal', desc:'Initial project proposal sent to Learning Facilitator.', file:'Project Proposal.pdf'},
     {title:'Learning Contract', desc:'Key Learning objectives, Goals and Action Plan.', file:'Learning Contract.pdf'},
     {title:'Learning Log', desc:'Bi-Weekly learning log and reflections. (Plan, Perform, Monitor, Reflect)', file:'Learning Log.pdf'},
-    {title:'GDD (Game Design Document)', desc:'Game Design Document covering mechanics, level design, UI, systems, progression for 2D roguelike "endless".', file:'endless-GDD.pdf'}
+    {title:'GDD (Game Design Document)', desc:'Game Design Document covering mechanics, level design, UI, systems and progressions.', file:'endless-GDD.pdf'}
   ];
 
   let current = 0;
