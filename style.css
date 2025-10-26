@@ -494,7 +494,7 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(16,24,40,0.08);
 }
-.survey-question h3{margin:0 0 0.5rem}
+.survey-question h3{margin:0 0 0.5rem; color: rgba(37,99,235,0.95);}
 .form-group{margin-bottom:1.5rem}
 .form-group label{display:block;margin-bottom:0.5rem;font-weight:600;color:#374151}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:8px;font-family:inherit;font-size:1rem;transition:border-color 200ms}
@@ -569,7 +569,7 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .album-stack .album-shot:nth-child(2){z-index:2;left:26px;transform:scale(0.98)}
 .album-stack .album-shot:nth-child(3){z-index:1;left:52px;transform:scale(0.96)}
 .album-info{position:absolute;left:50%;bottom: -22px;transform:translateX(-50%);padding:0;border:0;background:transparent;z-index:62;display:flex;justify-content:center;width:100%;pointer-events:none}
-.album-title{margin:0;font-size:0.98rem;font-weight:700;pointer-events:auto;background:linear-gradient(90deg,var(--primary),#3b82f6);color:#000;padding:0.45rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(16,24,40,0.08)}
+.album-title{margin:0;font-size:0.98rem;font-weight:700;pointer-events:auto;background:linear-gradient(90deg,var(--primary),#3b82f6);color:#fff;padding:0.45rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(16,24,40,0.08)}
 
 /* Dramatic hover: lift & scale the front shot, spread the peeked shots further, deepen shadows */
 
