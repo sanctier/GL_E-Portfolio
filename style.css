@@ -104,7 +104,7 @@ main{padding-top:4.5rem; padding-bottom:15rem}
   background: transparent;
 }
 .btn-primary{display:inline-block;padding:0.6rem 1.2rem;background:var(--primary);color:white;border-radius:10px;text-decoration:none;transition:background 200ms}
-.btn-primary:hover{background:#1d4ed8}
+.btn-primary:hover{background:#2563EB}
 .btn-secondary{display:inline-block;padding:0.6rem 1.2rem;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:10px;text-decoration:none;transition:all 200ms}
 .btn-secondary:hover{background:var(--primary);color:white}
 .hero-buttons{display:flex;gap:1rem;margin-top:1.5rem}
@@ -120,7 +120,7 @@ body[data-page="index"] .hero-inner{max-width:700px}
 .page-header .subtitle{color:var(--muted);margin:0;font-size:1.1rem}
 /* Small horizontal chips/buttons representing the learning cycle */
 .process-steps{display:flex;gap:0.75rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
-.process-step{background: rgba(37,99,235,0.95); color: #ffffff; padding:0.55rem 0.9rem;border-radius:12px;box-shadow:var(--shadow);font-weight:700;cursor:default;min-width:92px;text-align:center;transition:none}
+.process-step{background: rgba(37,99,235,0.95); color: #ffffff; padding:0.55rem 0.9rem;border-radius:12px;font-weight:700;cursor:default;min-width:92px;text-align:center;transition:none}
 @media (max-width:640px){
   .process-steps{gap:0.5rem}
   .process-step{flex:1;min-width:0;padding:0.6rem 0.8rem}
@@ -372,7 +372,7 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
   line-height: 1;
   cursor: pointer;
 }
-.close-pdf:hover{background:#1d4ed8}
+.close-pdf:hover{background:#2563EB}
 .close-pdf:focus{outline: 3px solid rgba(37,99,235,0.18); outline-offset:3px}
 
 /* Responsive */
@@ -448,7 +448,7 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .stage p{margin:0.5rem 0;color:var(--muted)}
 .badge{display:inline-block;padding:0.25rem 0.75rem;border-radius:20px;font-size:0.85rem;font-weight:600;margin-top:0.5rem}
 .stage.completed .badge{background:#d1fae5;color:#065f46}
-.stage.in-progress .badge{background:#dbeafe;color:#1e40af}
+.stage.in-progress .badge{background:#2563EB;color:#ffffff}
 .stage.locked .badge{background:#f3f4f6;color:#6b7280}
 .cta-section{margin-top:3rem;text-align:center;padding:2rem;background:var(--bg);border-radius:12px}
 .cta-buttons{display:flex;gap:1rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
@@ -569,7 +569,7 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .album-stack .album-shot:nth-child(2){z-index:2;left:26px;transform:scale(0.98)}
 .album-stack .album-shot:nth-child(3){z-index:1;left:52px;transform:scale(0.96)}
 .album-info{position:absolute;left:50%;bottom: -22px;transform:translateX(-50%);padding:0;border:0;background:transparent;z-index:62;display:flex;justify-content:center;width:100%;pointer-events:none}
-.album-title{margin:0;font-size:0.98rem;font-weight:700;pointer-events:auto;background:linear-gradient(90deg,var(--primary),#3b82f6);color:#fff;padding:0.45rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(16,24,40,0.08)}
+.album-title{margin:0;font-size:0.98rem;font-weight:700;pointer-events:auto;background-color:rgba(37,99,235,0.95);color:#fff;padding:0.45rem 1rem;border-radius:999px;}
 
 /* Dramatic hover: lift & scale the front shot, spread the peeked shots further, deepen shadows */
 
@@ -578,6 +578,13 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
 .album-card:hover .album-stack .album-shot:nth-child(1){transform:translateY(-6px) scale(1.02);box-shadow:0 16px 36px rgba(2,6,23,0.16)}
 .album-card:hover .album-stack .album-shot:nth-child(2){left:36px;transform:translateX(10px) scale(0.98) rotate(-1deg);box-shadow:0 12px 28px rgba(2,6,23,0.12)}
 .album-card:hover .album-stack .album-shot:nth-child(3){left:72px;transform:translateX(18px) scale(0.96) rotate(-2deg);box-shadow:0 10px 24px rgba(2,6,23,0.10)}
+
+/* When an album is highlighted (hovered), make the title pill use a black background for strong contrast */
+.album-card:hover .album-title{
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
 
 /* Push following album cards slightly to the right for a subtle separation */
 .album-card:hover ~ .album-card{transform:translateX(12px)}
@@ -616,7 +623,7 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
   border: 0;
   box-shadow: 0 6px 18px rgba(16,24,40,0.12);
 }
-.close-lightbox:hover { background: #1d4ed8; }
+.close-lightbox:hover { background: #2563EB; }
 .close-lightbox:focus { outline: 3px solid rgba(37,99,235,0.18); outline-offset:3px }
 .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(2,6,23,0.7);border:0;color:white;font-size:3rem;width:60px;height:60px;border-radius:50%;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0}

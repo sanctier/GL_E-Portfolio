@@ -88,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Helper for random colors
   function getRandomColor(){
-    const colors = ['#3b82f6','#8b5cf6','#ec4899','#f59e0b','#10b981','#06b6d4'];
+    // Use the project's primary blue for any blue accents so colors remain consistent
+    const colors = ['#2563EB','#8b5cf6','#ec4899','#f59e0b','#10b981','#2563EB'];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 
