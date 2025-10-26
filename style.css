@@ -107,7 +107,7 @@ main{padding-top:4.5rem; padding-bottom:15rem}
 .btn-primary:hover{background:#2563EB}
 .btn-secondary{display:inline-block;padding:0.6rem 1.2rem;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:10px;text-decoration:none;transition:all 200ms}
 .btn-secondary:hover{background:var(--primary);color:white}
-.hero-buttons{display:flex;gap:1rem;margin-top:1.5rem}
+.hero-buttons{display:flex;gap:1rem;margin-top:1.5rem;justify-content:center;align-items:center}
 .hero-pattern{display:none}
 
 /* Project info (index) hero alignment: left/centered like other pages */
