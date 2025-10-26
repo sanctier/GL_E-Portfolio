@@ -62,8 +62,8 @@ main{padding-top:4.5rem; padding-bottom:15rem}
 /* Checklist status badges */
 .check-item .task-status{
   display:inline-block;
-  padding:0.18rem 0.6rem;
-  border-radius:10px;
+  padding:0.5rem 0.6rem;
+  border-radius:20px;
   font-size:0.9rem;
   color:#fff;
   background:#000; /* in-progress default */
@@ -88,6 +88,9 @@ main{padding-top:4.5rem; padding-bottom:15rem}
   background:transparent;
   margin:0;
   flex:0 0 20px;
+  /* place the tick circle to the right side of the flex container */
+  order: 2;
+  margin-left: 0.75rem;
 }
 .check-item input[type="checkbox"]:disabled{
   cursor:default;
@@ -120,7 +123,7 @@ body[data-page="index"] .hero-inner{max-width:700px}
 .page-header .subtitle{color:var(--muted);margin:0;font-size:1.1rem}
 /* Small horizontal chips/buttons representing the learning cycle */
 .process-steps{display:flex;gap:0.75rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
-.process-step{background: rgba(37,99,235,0.95); color: #ffffff; padding:0.55rem 0.9rem;border-radius:12px;font-weight:700;cursor:default;min-width:92px;text-align:center;transition:none}
+.process-step{background: rgba(37,99,235,0.95); color: #ffffff; padding:0.55rem 0.9rem;border-radius:20px;font-weight:700;cursor:default;min-width:92px;text-align:center;transition:none}
 @media (max-width:640px){
   .process-steps{gap:0.5rem}
   .process-step{flex:1;min-width:0;padding:0.6rem 0.8rem}
@@ -494,7 +497,17 @@ a.btn-primary, a.btn-secondary{display:inline-flex;align-items:center;justify-co
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(16,24,40,0.08);
 }
-.survey-question h3{margin:0 0 0.5rem; color: rgba(37,99,235,0.95);}
+.survey-question h3{
+  margin:0 0 0.5rem;
+  color: #ffffff;
+  background: #2563EB;
+  display: inline-block;
+  padding: 0.5rem 0.9rem; /* increased vertical padding for a thicker rectangle */
+  border-radius: 20px; /* slightly larger radius to keep proportions */
+  font-weight: 600;
+  font-size: 0.95rem; /* smaller text */
+  line-height: 1.1;
+}
 .form-group{margin-bottom:1.5rem}
 .form-group label{display:block;margin-bottom:0.5rem;font-weight:600;color:#374151}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:8px;font-family:inherit;font-size:1rem;transition:border-color 200ms}
