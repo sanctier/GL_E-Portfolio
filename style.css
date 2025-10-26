@@ -181,7 +181,7 @@ body[data-page="index"] .hero-inner{max-width:700px}
 .reflection-content{min-height:60vh}
 .reflection-step{opacity:0;transform:translateY(40px);transition:opacity 600ms cubic-bezier(.25,.46,.45,.94),transform 600ms cubic-bezier(.25,.46,.45,.94);background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border-radius:16px;padding:40px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-bottom:2.5rem}
 .reflection-step{position:relative}
-.step-tag{position:absolute;top:16px;right:16px;background:var(--primary);color:#fff;padding:0.35rem 0.75rem;border-radius:999px;font-weight:700;font-size:0.9rem;box-shadow:0 8px 20px rgba(16,24,40,0.08)}
+.step-tag{position:absolute;top:16px;right:16px;background:var(--primary);color:#fff;padding:0.35rem 0.75rem;border-radius:999px;font-weight:700;font-size:0.9rem;}
 .reflection-step.visible{opacity:1;transform:translateY(0)}
 .reflection-step h3{margin-top:0}
 .reflection-step .images{display:flex;gap:1rem;margin-top:1rem}
