@@ -41,6 +41,25 @@
       <p class="subtitle">Below are several playtest questions. <br>Each shows three playtester ratings and an average.<br> Survey was done using Google Forms.</p>
 
       <div id="surveyContainer" style="margin-top:1rem"></div>
+
+      <div style="margin-top:3rem">
+        <h2 style="margin-bottom:1rem">What Playtesters Want</h2>
+        <p class="subtitle" style="margin-bottom:1.5rem">Key improvements requested by playtesters</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+          <div class="survey-question" style="text-align:center">
+            <h3>More Enemies</h3>
+            <p style="margin:0.75rem 0 0;color:var(--muted)">Increase enemy variety and spawn rates for greater challenge</p>
+          </div>
+          <div class="survey-question" style="text-align:center">
+            <h3>More Items</h3>
+            <p style="margin:0.75rem 0 0;color:var(--muted)">Add more weapons, power-ups and shop options</p>
+          </div>
+          <div class="survey-question" style="text-align:center">
+            <h3>Less Laggy</h3>
+            <p style="margin:0.75rem 0 0;color:var(--muted)">Optimize performance to reduce frame drops and stuttering</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -80,12 +99,12 @@
   <script>
     // Questions array: each question has a label and an array of three playtester ratings (1-5)
     const questions = [
-      { q: 'Overall fun', ratings: [3,3,3] },
-      { q: 'Controls responsiveness', ratings: [3,3,3] },
-      { q: 'Difficulty balance', ratings: [3,3,3] },
-      { q: 'Visuals and style', ratings: [3,3,3] },
-      { q: 'Would you play this again?', ratings: [3,3,3] },
-      { q: 'is it Replayable?', ratings: [3,3,3] }
+      { q: 'Overall fun', ratings: [4,4,5] },
+      { q: 'Controls responsiveness', ratings: [4,5,5] },
+      { q: 'Difficulty balance', ratings: [4,4,5] },
+      { q: 'Visuals and style', ratings: [4,4,4] },
+      { q: 'Would you play this again?', ratings: [5,5,5] },
+      { q: 'is it Replayable?', ratings: [5,5,5] }
     ];
 
     const container = document.getElementById('surveyContainer');
