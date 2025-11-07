@@ -106,8 +106,35 @@ main{padding-top:4.5rem; padding-bottom:15rem}
 .check-item input[type="checkbox"]:not(:checked){
   background: transparent;
 }
-.btn-primary{display:inline-block;padding:0.6rem 1.2rem;background:var(--primary);color:white;border-radius:10px;text-decoration:none;transition:background 200ms}
-.btn-primary:hover{background:#2563EB}
+.btn-primary{
+  display:inline-block;
+  padding:0.6rem 1.2rem;
+  background:var(--primary);
+  color:white;
+  border-radius:10px;
+  text-decoration:none;
+  transition:background 200ms;
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+/* Black wave sweep effect using ::before pseudo-element */
+.btn-primary::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#000;
+  z-index:-1;
+  transition:width 400ms ease;
+  border-radius:10px;
+}
+.btn-primary:hover::before{
+  width:100%;
+}
+.btn-primary:hover{background:var(--primary)}
 .btn-secondary{display:inline-block;padding:0.6rem 1.2rem;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:10px;text-decoration:none;transition:all 200ms}
 .btn-secondary:hover{background:var(--primary);color:white}
 .hero-buttons{display:flex;gap:1rem;margin-top:1.5rem;justify-content:center;align-items:center}
