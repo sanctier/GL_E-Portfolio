@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Example usage (uncomment and edit):
   const albumsData = [
     { title: 'Main Character', images: ['week1a.jpg','week1b.jpg'], captions: ['Putting the character into the scene','Coding the movement'] },
-    { title: 'Enemies', images: ['week1a.jpg','week1b.jpg'], captions: ['Main char','Idle frames'] },
-    { title: 'Game Screenshots', images: ['week1a.jpg','week1b.jpg'], captions: ['Main char','Idle frames'] },
+    { title: 'Enemies', images: ['skeleton.png','week1b.jpg'], captions: ['Main char','Idle frames'] },
+    { title: 'Game Screenshots', images: ['gamescene.png'], captions: ['Main char','Idle frames'] },
     // Additional albums added below
     { title: 'Environment', images: ['week1a.jpg','week1b.jpg','week1a.jpg'], captions: ['Tileset exploration','Level layout tests','Prototype tiles'] },
     { title: 'UI & HUD', images: ['week1a.jpg','week1b.jpg'], captions: ['Health and HUD layout','Inventory & shop UI'] },
